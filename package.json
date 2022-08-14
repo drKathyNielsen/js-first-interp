@@ -7,5 +7,9 @@
     "test": "jest"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "acorn": "^8.8.0",
+    "jest": "^28.1.3"
+  }
 }
