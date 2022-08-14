@@ -25,22 +25,28 @@ test('when variable declaration navigate to child node', ()=>{
     console.log('look at body[0].declarations.id', body[0].declarations[0].id.name)
 
 })
-test('when  id get the name', ()=>{
+test(' get the name from id node', ()=>{
     const node = body[0].declarations[0].id;
-    console.log(node)
-    let environment=[];
+    //console.log(node)
     const ev = new Evaluator();
     const name = ev.readIdentifier(node);
     expect(name).toBe("a");
 })
+test('when  id get the value', ()=>{
+    const node = body[0].declarations[0].init;
+    //console.log(node)
+    const ev = new Evaluator();
+    const value = ev.readLiteral(node);
+    expect(value).toBe("hello");
+})
 
-// test('when variable declarator store the id and value', ()=>{
-//     const node = body[0].declarations;
-//     console.log(node.id)
-//     let environment=[];
-//     const ev = new Evaluator();
-//     ev.variableDeclarator(node, environment); 
-//     console.log(environment)
-//     expect(environment[0].id).toBe( 'a'); 
-//     expect(environment[0].value).toBe('hello');
-// })
+test('when variable declarator store the id and value', ()=>{
+    const node = body[0].declarations[0];
+    console.log(node)
+    let environment=[];
+    const ev = new Evaluator();
+    ev.variableDeclarator(node, environment); 
+    console.log(environment)
+    expect(environment[0].id).toBe( 'a'); 
+    expect(environment[0].value).toBe('hello');
+})
