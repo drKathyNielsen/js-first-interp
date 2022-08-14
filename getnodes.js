@@ -1,7 +1,7 @@
 const acorn = require("acorn");
 const fs = require('fs')
 
-class getnodes{
+class Getnodes{
     loadfile(filename){
 
         const buffer = fs.readFileSync('./test/sample.js', {encoding:'utf8', flag:'r'}).toString()
@@ -14,4 +14,4 @@ class getnodes{
 
     }   
 }
-module.exports = getnodes
+module.exports = Getnodes
