@@ -1,10 +1,16 @@
-const getnodes = require("./../getnodes");
-const fs = require('fs')
-const buffer = fs.readFileSync('./test/sample.js', {encoding:'utf8', flag:'r'}).toString()
-//const program="let a='hello'   print(a)";
+const Getnodes = require("./../getnodes");
+let body ;
 
-const body = getnodes(buffer)
-console.log(body)
-test('get nodes for program', ()=>{
+beforeAll( ()=>{
+    var getnodes = new Getnodes();
+
+    const program = getnodes.loadfile('./test/sample.js')
+    body = getnodes.parse(program)
+
+    return body;
+})
+
+test('nodes parsed', ()=>{
     expect(body.length).toBe(2); 
+    console.log(body)
 })
