@@ -1,5 +1,18 @@
  class Evaluator {
 
+    evalNodes(nodes, environment){
+        for(const node of nodes){
+            this.evalNode(node, environment);
+        
+        if (node.declarations) this.evalNodes(node.declarations, environment)
+        }
+    }
+    evalNode(node, environment) {
+         switch (node.type) {
+             case 'VariableDeclarator': this.variableDeclarator(node, environment);
+         }
+     }
+
     variableDeclarator(node, environment){
         const id=this.readIdentifier (node.id);
         const value = this.readLiteral(node.init);

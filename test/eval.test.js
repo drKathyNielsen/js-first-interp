@@ -16,7 +16,7 @@ beforeAll( ()=>{
 })
 
 test('nodes parsed', ()=>{
-    expect(body.length).toBe(2); 
+    expect(body.length).toBeGreaterThan(0); 
 })
 test('inspect', ()=>{
     console.log('look at first node', body[0])
@@ -47,4 +47,14 @@ test('when variable declarator store the id and value', ()=>{
 
     expect(environment[0].id).toBe( 'a'); 
     expect(environment[0].value).toBe('hello');
+})
+
+test('another node is an identifier', ()=>{
+    let environment=[];
+    const ev = new Evaluator();
+    ev.evalNodes(body, environment); 
+    console.log(environment);
+    const result = environment.some(element=>element={ id: 'b', value: 6 })
+    expect(result).toBeDefined; 
+    //expect(environment[2].value).toBe(6);
 })
