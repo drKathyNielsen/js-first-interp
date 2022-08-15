@@ -8,11 +8,11 @@
         environment.push({id, value});   
     }
     readIdentifier(node){
-        console.log("readIdentifier", node);
+        //console.log("readIdentifier", node);
         return node.name;
     }
     readLiteral(node){
-        console.log("readLiteral", node);
+        //console.log("readLiteral", node);
         return node.value;
     }
 }
