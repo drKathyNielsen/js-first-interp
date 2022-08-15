@@ -4,7 +4,7 @@ const fs = require('fs')
 class Getnodes{
     loadfile(filename){
 
-        const buffer = fs.readFileSync('./test/sample.js', {encoding:'utf8', flag:'r'}).toString()
+        const buffer = fs.readFileSync(filename, {encoding:'utf8', flag:'r'}).toString()
         return buffer
     }
 
